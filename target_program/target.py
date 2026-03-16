@@ -1,16 +1,29 @@
-def run_target(data):
+import sys
 
-    print("Testing:", data)
+# Read fuzzed input
+data = sys.stdin.read().strip()
 
-    # Simulated vulnerabilities
+# Simulated vulnerabilities for fuzz testing
 
-    if len(data) > 10:
-        raise Exception("Buffer Overflow Simulated")
+# 1️⃣ Buffer overflow simulation
+if len(data) > 10:
+    raise Exception("Buffer Overflow Simulated")
 
-    if "!!!" in data:
-        raise Exception("Format String Vulnerability")
+# 2️⃣ Special pattern crash
+if "CRASH" in data:
+    raise Exception("Crash Pattern Detected")
 
-    if data.startswith("AAAA"):
-        raise Exception("Stack Corruption")
+# 3️⃣ Numeric overflow simulation
+if data.isdigit() and int(data) > 100000:
+    raise Exception("Integer Overflow Simulated")
 
-    return "Program ran successfully"
+# 4️⃣ Format string issue simulation
+if "%" in data:
+    raise Exception("Format String Vulnerability Simulated")
+
+# 5️⃣ SQL injection pattern simulation
+if "'" in data or "--" in data:
+    raise Exception("SQL Injection Pattern Detected")
+
+# If none of the conditions trigger
+print("Program ran successfully")

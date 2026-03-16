@@ -1,2 +1,0 @@
-Input: OjiJQcxIaALw
-Error: Buffer Overflow Simulated
