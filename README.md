@@ -1,91 +1,123 @@
-# Smart Fuzzer
+# Smart Fuzzer 🔍
 
-## Overview
+Smart Fuzzer is a Python-based fuzz testing framework designed to automatically generate inputs, test target programs, detect crashes, and classify vulnerabilities.
 
-Smart Fuzzer is a Python-based mutation fuzzing framework designed to detect crashes and vulnerabilities in software programs by generating random and mutated inputs.
-
-Fuzz testing helps identify unexpected behavior, memory errors, and input validation bugs in applications.
+Fuzzing is a widely used technique in security testing used by tools like AFL, libFuzzer, and OSS-Fuzz.
 
 ---
 
-## Features
+## 🚀 Features
 
-* Random input generation
-* Mutation-based fuzzing
-* Automated crash detection
-* Crash logging and storage
-* Crash frequency analysis
-* Visualization of crash statistics
-
----
-
-## Architecture
-
-Input Generator → Mutation Engine → Target Program → Crash Detector → Crash Logger → Visualization
+- Random input generation
+- Automated fuzz testing
+- Target program execution
+- Crash detection
+- Crash classification
+- Crash grouping
+- Vulnerability simulation
+- Fuzzing summary report
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-smart-fuzzer/
-│
-├── fuzzer/
-│   ├── generator.py
-│   ├── mutator.py
-│   └── runner.py
-│
-├── target_program/
-│   └── target.py
-│
-├── crashes/
-│
-├── analysis/
-│   └── visualize.py
-│
-├── main.py
-├── requirements.txt
-└── README.md
+smart-fuzzer-project
+
+core  
+  crash_detector.py  
+  crash_classifier.py  
+
+input_generator  
+  generator.py  
+
+target_program  
+  target.py  
+
+crashes  
+  crash reports  
+
+payloads  
+
+fuzzers  
+
+corpus  
+
+coverage_report  
+
+main.py
 
 ---
 
-## Installation
+## ⚙️ How It Works
 
-pip install -r requirements.txt
+1. The fuzzer generates random inputs.
+2. Inputs are passed to the target program.
+3. The target program processes the input.
+4. If the program crashes, the fuzzer detects it.
+5. The crash is classified and saved in the crashes folder.
 
 ---
 
-## Run the Fuzzer
+## ▶️ Running the Fuzzer
+
+Run the program using:
 
 python main.py
 
----
+Example output:
 
-## Example Output
-
-Total inputs tested: 1000
-Crashes detected: 27
-
-Crash logs will be saved in the crashes/ directory.
+Smart Fuzzer Project Started  
+Testing: PnscazLTsoT  
+Unique crash detected!  
+Crash grouped under buffer_overflow_simulated.txt
 
 ---
 
-## Technologies Used
+## 🧪 Simulated Vulnerabilities
 
-* Python
-* Matplotlib
-* Random Mutation Algorithms
+The target program simulates several vulnerabilities:
 
----
-
-## Future Improvements
-
-* Coverage-guided fuzzing
-* Parallel fuzzing
-* Web dashboard for results
-* AI-based input generation
+- Buffer Overflow
+- Crash Pattern Detection
+- Integer Overflow
+- Format String Vulnerability
+- SQL Injection Pattern
 
 ---
 
-## Author
+## 📊 Example Results
 
-Dhanushree
+Total Tests Run: 50  
+Total Unique Crashes: 15  
+
+Detected crashes are stored in:
+
+crashes/
+buffer_overflow_simulated.txt
+
+---
+
+## 🔮 Future Improvements
+
+Planned upgrades:
+
+- Mutation-based fuzzing
+- Coverage-guided fuzzing
+- API fuzzing
+- AI-assisted input generation
+- Web dashboard for results
+
+---
+
+## 🛠 Tech Stack
+
+Python  
+Git  
+GitHub  
+
+---
+
+## 👨‍💻 Author
+
+Dhanu Shree
+
