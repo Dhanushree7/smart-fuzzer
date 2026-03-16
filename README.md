@@ -119,5 +119,5 @@ GitHub
 
 ## 👨‍💻 Author
 
-Dhanu Shree
+Dhanushree
 
