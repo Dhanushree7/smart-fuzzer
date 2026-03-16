@@ -173,4 +173,4 @@ Planned upgrades:
 
 # 👨‍💻 Author
 
-Dhanu Shree
+Dhanushree
