@@ -1,123 +1,176 @@
 # Smart Fuzzer 🔍
 
-Smart Fuzzer is a Python-based fuzz testing framework designed to automatically generate inputs, test target programs, detect crashes, and classify vulnerabilities.
+Smart Fuzzer is a Python-based fuzz testing framework designed to automatically generate inputs, mutate them, explore program behavior, detect crashes, and classify vulnerabilities.
 
-Fuzzing is a widely used technique in security testing used by tools like AFL, libFuzzer, and OSS-Fuzz.
+This project demonstrates key fuzzing techniques used in modern security testing tools.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 - Random input generation
-- Automated fuzz testing
-- Target program execution
+- Mutation-based fuzzing
+- Coverage-guided fuzzing
+- Seed corpus inputs
+- Automated target program execution
 - Crash detection
 - Crash classification
 - Crash grouping
 - Vulnerability simulation
-- Fuzzing summary report
+- Fuzzing summary reports
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-smart-fuzzer-project
-
-core  
-  crash_detector.py  
-  crash_classifier.py  
-
-input_generator  
-  generator.py  
-
-target_program  
-  target.py  
-
-crashes  
-  crash reports  
-
-payloads  
-
-fuzzers  
-
-corpus  
-
-coverage_report  
-
-main.py
-
----
-
-## ⚙️ How It Works
-
-1. The fuzzer generates random inputs.
-2. Inputs are passed to the target program.
-3. The target program processes the input.
-4. If the program crashes, the fuzzer detects it.
-5. The crash is classified and saved in the crashes folder.
+```
+smart-fuzzer
+│
+├── core
+│   ├── crash_detector.py
+│   ├── crash_classifier.py
+│
+├── corpus
+│   └── seeds.txt
+│
+├── fuzzers
+│   ├── mutation_fuzzer.py
+│   └── coverage_fuzzer.py
+│
+├── input_generator
+│   └── generator.py
+│
+├── target_program
+│   └── target.py
+│
+├── crashes
+│
+└── main.py
+```
 
 ---
 
-## ▶️ Running the Fuzzer
+# ⚙️ How Smart Fuzzer Works
 
-Run the program using:
+1️⃣ The fuzzer generates inputs using random generation or mutation.
 
+2️⃣ Seed inputs are mutated to explore nearby input variations.
+
+3️⃣ The target program is executed with these inputs.
+
+4️⃣ Coverage-guided fuzzing checks if new code paths are discovered.
+
+5️⃣ If the program crashes, the crash is detected.
+
+6️⃣ Crashes are classified and stored in the crashes folder.
+
+---
+
+# ▶️ Running the Fuzzer
+
+Run the Smart Fuzzer with:
+
+```
 python main.py
+```
 
 Example output:
 
-Smart Fuzzer Project Started  
-Testing: PnscazLTsoT  
-Unique crash detected!  
-Crash grouped under buffer_overflow_simulated.txt
+```
+Smart Fuzzer Project Started
+Testing: AAAAAAAAA
+New code path discovered!
+Program ran successfully
+
+Testing: H%LLO
+Unique crash detected!
+Crash grouped under exception_format_string_vulnerability_simulated.txt
+```
 
 ---
 
-## 🧪 Simulated Vulnerabilities
+# 🧪 Simulated Vulnerabilities
 
-The target program simulates several vulnerabilities:
+The target program simulates different vulnerabilities for testing:
 
-- Buffer Overflow
-- Crash Pattern Detection
-- Integer Overflow
-- Format String Vulnerability
-- SQL Injection Pattern
+| Vulnerability | Trigger |
+|------|------|
+Buffer Overflow | Input length > 10 |
+Integer Overflow | Large numeric input |
+Format String | `%` character |
+SQL Injection | `'` or `--` patterns |
 
 ---
 
-## 📊 Example Results
+# 📊 Example Results
 
-Total Tests Run: 50  
-Total Unique Crashes: 15  
+```
+Total Tests Run: 50
+Total Unique Crashes: 11
+```
 
-Detected crashes are stored in:
+Crash reports are stored in:
 
+```
 crashes/
-buffer_overflow_simulated.txt
+```
+
+Example crash files:
+
+```
+exception_buffer_overflow_simulated.txt
+exception_integer_overflow_simulated.txt
+exception_format_string_vulnerability_simulated.txt
+```
 
 ---
 
-## 🔮 Future Improvements
+# 🧠 Advanced Fuzzing Techniques Used
+
+### Mutation-based fuzzing
+Inputs are mutated from seed values to explore nearby variations.
+
+Example:
+
+```
+HELLO
+HELLhO
+H%LLO
+```
+
+---
+
+### Coverage-guided fuzzing
+The fuzzer detects when new code paths are executed and prioritizes those inputs.
+
+Example:
+
+```
+New code path discovered!
+```
+
+---
+
+# 🛠 Tech Stack
+
+- Python
+- Coverage.py
+- Git
+- GitHub
+
+---
+
+# 🔮 Future Improvements
 
 Planned upgrades:
 
-- Mutation-based fuzzing
-- Coverage-guided fuzzing
-- API fuzzing
-- AI-assisted input generation
-- Web dashboard for results
+- Parallel fuzzing
+- Corpus evolution
+- Crash deduplication
+- Web dashboard for fuzzing results
 
 ---
 
-## 🛠 Tech Stack
+# 👨‍💻 Author
 
-Python  
-Git  
-GitHub  
-
----
-
-## 👨‍💻 Author
-
-Dhanushree
-
+Dhanu Shree
